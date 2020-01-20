@@ -1,0 +1,7 @@
+<mat-card class="cart-list-wraper">
+  <app-cart-product
+    class="product"
+    *ngFor="let product of products | async"
+    [item]="product"
+  ></app-cart-product>
+</mat-card>

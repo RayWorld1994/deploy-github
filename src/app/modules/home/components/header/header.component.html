@@ -1,0 +1,36 @@
+<mat-toolbar color="primary" class="header-grid" role="heading">
+  <span
+    ><button mat-mini-fab (click)="sidenavOpen()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </span>
+  <span
+    ><img
+      mat-card-avatar
+      src="https://applaudostudios.com/wp-content/uploads/2018/04/Applaudo-Studios-1-150x150.png"
+    />
+  </span>
+  <span>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Search" #search />
+    </mat-form-field>
+    <button
+      class=""
+      mat-raised-button
+      color="accent"
+      [routerLink]="['/search', search.value]"
+    >
+      <mat-icon>search</mat-icon>
+    </button>
+  </span>
+  <span>
+    <a (click)="isHidden = !isHidden" class="">
+      <img
+        class="img-profile"
+        mat-card-avatar
+        src="https://st.depositphotos.com/1431107/4300/v/450/depositphotos_43004833-stock-illustration-unknown-person.jpg"/></a
+  ></span>
+</mat-toolbar>
+<div class="profile" [hidden]="isHidden">
+  <app-profile></app-profile>
+</div>

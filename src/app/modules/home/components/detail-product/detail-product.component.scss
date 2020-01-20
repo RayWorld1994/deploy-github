@@ -1,0 +1,115 @@
+@mixin text($padding, $line-height, $font-size) {
+  box-sizing: border-box;
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: 'quicksandregular';
+  color: white;
+  padding: $padding 0 0 0;
+  margin: 0;
+}
+
+.mat-card {
+  max-width: 800px;
+  margin: 10px;
+}
+
+.product-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  .mat-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 10px;
+    img {
+      grid-column: 1 / span 2;
+    }
+  }
+}
+
+.mat-card-title {
+  @include text(5px, 50px, 50px);
+}
+
+.mat-card-subtitle {
+  @include text(0, 30px, 14px);
+}
+
+.mat-card-header {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 5px;
+  margin: 5px;
+  justify-items: center;
+  align-items: center;
+  margin: 0;
+  .input-quantity {
+    width: 50px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    height: 50px;
+  }
+  .title-quantity {
+    justify-self: left;
+    span:nth-child(3) {
+      @include text(5px, 30px, 20px);
+      font-weight: bold;
+    }
+  }
+  .add-cart {
+    grid-column: 1 / span 4;
+    width: 100%;
+  }
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-quantity {
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  height: 60px;
+}
+
+.card-reaction {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  margin: 5px;
+  width: 100%;
+  padding: 0;
+  .mat-button {
+    margin: 0;
+    padding: 0;
+    min-width: 40px;
+  }
+}
+
+.mat-divider {
+  border-top-width: 3px;
+}
+
+@media only screen and (max-width: 479px) {
+  .product-wrapper {
+    .mat-card {
+      grid-template-columns: 1fr;
+      img {
+        grid-column: 1 / span 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<mat-sidenav-container (backdropClick)="close()" class="mat-app-background">
+  <mat-sidenav #sidenav (keydown.escape)="close()" disableClose>
+    <button color="warn" mat-mini-fab class="btn-close" (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <h2>Category</h2>
+    <mat-nav-list role="list">
+      <a
+        mat-list-item
+        href="#"
+        *ngFor="let category of categories"
+        [routerLink]="['/category', category.id]"
+      >
+        {{ category.name }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="home-content">
+    <app-header (EventOpenNavside)="sidenav.open()"></app-header>
+    <nav mat-tab-nav-bar>
+      <a mat-tab-link routerLink="/">
+        HOME
+      </a>
+      <a mat-tab-link routerLink="/cart">
+        CART
+      </a>
+    </nav>
+
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,28 @@
+<mat-card class="product-card">
+  <mat-card-header class="info-product">
+    <div>
+      <img mat-card-md-image [src]="item.image.url" />
+    </div>
+    <mat-card-title>{{ item.name }}</mat-card-title>
+    <mat-card-subtitle>{{ item.master.price | currency }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions class="container-action">
+    <button mat-mini-fab (click)="decrease()">
+      <mat-icon>remove</mat-icon>
+    </button>
+    <mat-form-field class="input-quantity">
+      <input
+        type="number"
+        matInput
+        placeholder="Quantity"
+        [(ngModel)]="quantity"
+      />
+    </mat-form-field>
+    <button mat-mini-fab (click)="increase()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="removeProduct()">
+      <mat-icon>remove_shopping_cart</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

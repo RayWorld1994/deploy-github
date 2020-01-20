@@ -1,0 +1,55 @@
+<div class="product-wrapper">
+  <mat-card>
+    <img
+      mat-card-image
+      src="{{
+        (product | async).image?.url ||
+          'https://carolinadojo.com/wp-content/uploads/2017/04/default-image.jpg'
+      }}"
+    />
+    <mat-card-header>
+      <mat-card-title>{{
+        (product | async).master.price | currency
+      }}</mat-card-title>
+      <mat-card-subtitle>{{ (product | async).name }}</mat-card-subtitle>
+      <mat-card-subtitle>{{
+        (product | async).category.name
+      }}</mat-card-subtitle>
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-card-header>
+
+    <mat-card-content>
+      <h2>{{ (product | async).description }}</h2>
+      description
+      <mat-divider [inset]="true"></mat-divider>
+    </mat-card-content>
+
+    <mat-card-actions class="quantity-card">
+      <div class="title-quantity">
+        <span>Order now</span><br />
+        <span>Quantity</span>
+      </div>
+      <button mat-mini-fab (click)="decrease()">
+        <mat-icon>remove</mat-icon>
+      </button>
+      <input type="number" class="input-quantity" [(ngModel)]="quantity" />
+      <button mat-mini-fab (click)="increase()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <button mat-raised-button color="primary" class="add-cart">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button>
+    </mat-card-actions>
+    <mat-card-actions class="card-reaction">
+      <button color="accent" mat-button>
+        <mat-icon>thumb_up</mat-icon>
+      </button>
+      <span class="like">{{ (product | async).likes_up_count }}</span>
+      <span></span>
+      <span class="dislike">{{ (product | async).likes_down_count }}</span>
+      <button mat-button>
+        <mat-icon>thumb_down</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,22 @@
+<mat-card class="profile-card">
+  <mat-card-header>
+    <img
+      mat-card-avatar
+      src="https://material.angular.io/assets/img/examples/shiba1.jpg"
+    />
+    <mat-card-title>{{
+      (user | async)?.user.email || 'jonDoe@user.com'
+    }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-actions>
+    <button
+      mat-raised-button
+      color="warn"
+      class="btn-logout"
+      (click)="session()"
+    >
+      {{ isLogin }}
+    </button>
+  </mat-card-actions>
+</mat-card>

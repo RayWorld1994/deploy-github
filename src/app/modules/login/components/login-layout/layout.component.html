@@ -1,0 +1,39 @@
+<app-background>
+  <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title><h1>Log in</h1></mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="formLogin" class="login-form">
+        <mat-card-content>
+          <mat-form-field class="login-full-width">
+            <input formControlName="email" matInput placeholder="Username" />
+            <mat-error>
+              USername is required
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="login-full-width">
+            <input
+              formControlName="password"
+              type="password"
+              matInput
+              placeholder="Password"
+            />
+            <mat-error>
+              Password is required
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <button
+          mat-raised-button
+          color="accent"
+          class="btn-block"
+          [disabled]="formLogin.invalid"
+          (click)="login()"
+        >
+          Log in
+        </button>
+      </form>
+    </mat-card>
+  </div>
+</app-background>
